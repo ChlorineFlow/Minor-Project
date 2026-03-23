@@ -18,6 +18,7 @@ export const sendOtp = async (email) => {
     const data = await response.json();
 
     if (!response.ok) {
+      console.error('API Error:', data);
       throw new Error(data.message || 'Failed to send OTP');
     }
 
@@ -43,6 +44,7 @@ export const verifyOtp = async (email, otp) => {
     const data = await response.json();
 
     if (!response.ok) {
+      console.error('Verify API Error:', data);
       throw new Error(data.message || 'OTP verification failed');
     }
 
